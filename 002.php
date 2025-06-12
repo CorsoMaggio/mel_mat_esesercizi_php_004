@@ -77,14 +77,31 @@ class Province extends Region
     }
 }
 
-class Province extends Region
+class City extends Province
 {
-    public $nameProvince;
+    public $nameCity;
 
 
-    public function __construct($continent, $country, $region, $province)
+    public function __construct($continent, $country, $region, $province, $city)
     {
-        parent::__construct($continent, $country, $region);
-        $this->nameProvince = $province;
+        parent::__construct($continent, $country, $region, $province);
+        $this->nameCity = $city;
     }
 }
+class Street extends City
+{
+    public $nameStreet;
+
+
+    public function __construct($continent, $country, $region, $province, $city, $street)
+    {
+        parent::__construct($continent, $country, $region, $province, $city);
+        $this->nameStreet = $street;
+    }
+    public function getMyLocation()
+    {
+        echo "Mi trovo in $this->nameContinent, $this->nameCountry, $this->nameRegion,$this->nameProvince, $this->nameCity, $this->nameStreet";
+    }
+}
+$myLocation = new Street('Europa', ' Italia', 'Puglia', 'Ba', 'Monopoli', 'Via Roma');
+$myLocation->getMyLocation();
