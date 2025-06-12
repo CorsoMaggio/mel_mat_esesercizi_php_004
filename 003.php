@@ -43,5 +43,13 @@ abstract class Vertebrate
 
 class WarmBlooded extends Vertebrate
 {
-    public function __construct() {}
+    public function __construct()
+    {
+        parent::imVertebrate();
+        self::imWarmBlooded();
+    }
+    protected function imWarmBlooded()
+    {
+        echo "Sono un animale a sangue caldo";
+    }
 }
